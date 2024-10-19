@@ -10,8 +10,13 @@ This project is a RESTful API designed to manage transactions and sellers. It pr
 - **GET /api/sellers**: Retrieve a list of all sellers.
 - **GET /api/sellers/{id}**: Retrieve a seller by ID.
 - **POST /api/sellers**: Create a new seller.
+- Request Body: {"name": "Seller Name", "contactInfo": "Contact Information"}
+- Example: {"name": "John Doe", "contactInfo": "123456789"}
 - **PUT /api/sellers/{id}**: Update an existing seller.
+- Request Body: {"name": "Updated Seller Name", "contactInfo": "Updated Contact Information"}
+- Example: {"name": "Jane Smith", "contactInfo": "987654321"}
 - **DELETE /api/sellers/{id}**: Delete a seller by ID.
+- **GET /api/sellers**: Retrieve a list of all sellers.
 
 ### Transaction Endpoints
 - **GET /api/transactions**: Retrieve a list of all transactions.
@@ -31,6 +36,7 @@ This project is a RESTful API designed to manage transactions and sellers. It pr
 - Maven 3.6 or later
 - Spring Boot 2.7.x or later
 - MySQL or any other database supported by Spring Boot
+- Mockito for testing
 
 ### Steps to Build and Run
 
