@@ -55,7 +55,7 @@ Edit the src/main/resources/application.properties file to configure your databa
   spring.datasource.username=your_username
   spring.datasource.password=your_password
   spring.jpa.hibernate.ddl-auto=update
-
+  ```
 3. **Build Project
 
 4. **Running project**
