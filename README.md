@@ -102,4 +102,4 @@ Edit the src/main/resources/application.properties file to configure your databa
   }
 
 ### Testing
-- to Run test go to demo/src/test/kotlin/com/example/demo, choose the test you want to run, and run this test
+- To Run test go to demo/src/test/kotlin/com/example/demo, choose the test you want to run, and run this test
