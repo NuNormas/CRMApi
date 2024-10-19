@@ -46,12 +46,59 @@ This project is a RESTful API designed to manage transactions and sellers. It pr
 
 1. **Clone the Repository**
    ```bash
-   git clone https://github.com/your-repo/transaction-seller-api.git
-
+   git clone https://github.com/NuNormas/CRMApi.git
+   
 2. **Database Configuration**
 Edit the src/main/resources/application.properties file to configure your database settings.
-```text
-spring.datasource.url=jdbc:mysql://localhost:3306/your_database
-spring.datasource.username=your_username
-spring.datasource.password=your_password
-spring.jpa.hibernate.ddl-auto=update
+  ```text
+  spring.datasource.url=jdbc:mysql://localhost:3306/your_database
+  spring.datasource.username=your_username
+  spring.datasource.password=your_password
+  spring.jpa.hibernate.ddl-auto=update
+
+3. **Build Project
+
+4. **Running project**
+   Run the DemoApplication.kt
+
+### Example Usage
+- **Create a New Seller**
+    ```bash
+    curl -X POST \
+      http://localhost:8080/api/sellers \
+      -H 'Content-Type: application/json' \
+      -d '{"name": "John Doe", "contactInfo": "123456789"}'
+
+- **Create a New Transaction**
+    ```bash
+    curl -X POST \
+      http://localhost:8080/api/transactions \
+      -H 'Content-Type: application/json' \
+      -d '{"sellerId": 1, "amount": "10.00", "paymentType": "CASH"}'
+
+- **Get Best Seller of the Day**
+    ```bash
+    curl -X GET \
+      http://localhost:8080/api/transactions/best-seller/day
+
+- **Get Sellers with Less Than a Specified Amount of Transactions**
+    ```bash
+    curl -X GET \
+      'http://localhost:8080/api/transactions/sellers/less-than?amount=30.00&startDate=2024-01-01T00:00:00&endDate=2024-01-31T23:59:59'
+
+### Dependencies
+  The project uses the following dependencies:
+  Spring Boot Starter Web
+  Spring Boot Starter Data JPA
+  MySQL Connector Java
+  Mockito for testing
+  Here is an excerpt from the build.gradle file showing the dependencies:
+  groovy
+  dependencies {
+      implementation 'org.springframework.boot:spring-boot-starter-web'
+      implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+      runtimeOnly 'mysql:mysql-connector-java'
+      testImplementation 'org.mockito:mockito-core'
+      // Other dependencies
+  }
+
