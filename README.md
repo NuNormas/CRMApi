@@ -10,8 +10,8 @@ This project is a RESTful API designed to manage transactions and sellers. It pr
 - **GET /api/sellers**: Retrieve a list of all sellers.
 - **GET /api/sellers/{id}**: Retrieve a seller by ID.
 - **POST /api/sellers**: Create a new seller.
--  Request Body: {"name": "Seller Name", "contactInfo": "Contact Information"}
--  Example: {"name": "John Doe", "contactInfo": "123456789"}
+  Request Body: {"name": "Seller Name", "contactInfo": "Contact Information"}
+  Example: {"name": "John Doe", "contactInfo": "123456789"}
 - **PUT /api/sellers/{id}**: Update an existing seller.
   Request Body: {"name": "Updated Seller Name", "contactInfo": "Updated Contact Information"}
   Example: {"name": "Jane Smith", "contactInfo": "987654321"}
@@ -22,12 +22,16 @@ This project is a RESTful API designed to manage transactions and sellers. It pr
 - **GET /api/transactions**: Retrieve a list of all transactions.
 - **GET /api/transactions/{id}**: Retrieve a transaction by ID.
 - **POST /api/transactions**: Create a new transaction.
+  Request Body: {"sellerId": 1, "amount": "10.00", "paymentType": "CASH" or "CARD" or "TRANSFER"}
+  Example: {"sellerId": 1, "amount": "10.00", "paymentType": "CASH"}
 - **GET /api/transactions/sellers/{sellerId}**: Retrieve all transactions for a specific seller.
 - **GET /api/transactions/best-seller/day**: Retrieve the best seller for the current day.
 - **GET /api/transactions/best-seller/month**: Retrieve the best seller for the current month.
 - **GET /api/transactions/best-seller/quarter**: Retrieve the best seller for the current quarter.
 - **GET /api/transactions/best-seller/year**: Retrieve the best seller for the current year.
 - **GET /api/transactions/sellers/less-than**: Retrieve sellers with less than a specified amount of transactions within a given period.
+  Query Parameters: amount, startDate, endDate
+  Example: ?amount=30.00&startDate=2024-01-01T00:00:00&endDate=2024-01-31T23:59:59
 
 ## Instructions for Building and Running
 
