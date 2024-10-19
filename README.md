@@ -37,7 +37,7 @@ This project is a RESTful API designed to manage transactions and sellers. It pr
 
 ### Prerequisites
 - Java 11 or later
-- Maven 3.6 or later
+- Gradle 7.x or later: Ensure you have Gradle 7.x or a later version installed.
 - Spring Boot 2.7.x or later
 - MySQL or any other database supported by Spring Boot
 - Mockito for testing
@@ -47,3 +47,11 @@ This project is a RESTful API designed to manage transactions and sellers. It pr
 1. **Clone the Repository**
    ```bash
    git clone https://github.com/your-repo/transaction-seller-api.git
+
+2. **Database Configuration**
+Edit the src/main/resources/application.properties file to configure your database settings.
+```text
+spring.datasource.url=jdbc:mysql://localhost:3306/your_database
+spring.datasource.username=your_username
+spring.datasource.password=your_password
+spring.jpa.hibernate.ddl-auto=update
