@@ -39,7 +39,7 @@ This project is a RESTful API designed to manage transactions and sellers. It pr
 - Java 11 or later
 - Gradle 7.x or later: Ensure you have Gradle 7.x or a later version installed.
 - Spring Boot 2.7.x or later
-- MySQL or any other database supported by Spring Boot
+- PostgreSQL or any other database supported by Spring Boot
 - Mockito for testing
 
 ### Steps to Build and Run
@@ -87,13 +87,13 @@ Edit the src/main/resources/application.properties file to configure your databa
       'http://localhost:8080/api/transactions/sellers/less-than?amount=30.00&startDate=2024-01-01T00:00:00&endDate=2024-01-31T23:59:59'
 
 ### Dependencies
-  The project uses the following dependencies:
-  Spring Boot Starter Web
-  Spring Boot Starter Data JPA
-  MySQL Connector Java
-  Mockito for testing
-  Here is an excerpt from the build.gradle file showing the dependencies:
-  groovy
+- **The project uses the following dependencies**:
+-   Spring Boot Starter Web
+-   Spring Boot Starter Data JPA
+-   PostgreSQL
+-   Mockito for testing
+- **Here is an excerpt from the build.gradle file showing the dependencies**:
+  ```groovy
   dependencies {
       implementation 'org.springframework.boot:spring-boot-starter-web'
       implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
