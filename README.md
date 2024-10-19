@@ -45,8 +45,7 @@ This project is a RESTful API designed to manage transactions and sellers. It pr
 ### Steps to Build and Run
 
 1. **Clone the Repository**
-   ```bash
-   git clone https://github.com/NuNormas/CRMApi.git
+   Unzip the archive with project
    
 2. **Database Configuration**
 Edit the src/main/resources/application.properties file to configure your database settings.
@@ -59,7 +58,7 @@ Edit the src/main/resources/application.properties file to configure your databa
 3. **Build Project**
 
 4. **Running project**
-- Run the DemoApplication.kt in demo/src/main/kotlin/com/example/demo
+- Run the DemoApplication in demo/src/main/kotlin/com/example/demo
 
 ### Example Usage
 - **Create a New Seller**
