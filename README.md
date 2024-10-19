@@ -56,10 +56,10 @@ Edit the src/main/resources/application.properties file to configure your databa
   spring.datasource.password=your_password
   spring.jpa.hibernate.ddl-auto=update
   ```
-3. **Build Project
+3. **Build Project**
 
 4. **Running project**
-   Run the DemoApplication.kt
+- Run the DemoApplication.kt
 
 ### Example Usage
 - **Create a New Seller**
