@@ -97,7 +97,7 @@ Edit the src/main/resources/application.properties file to configure your databa
   dependencies {
       implementation 'org.springframework.boot:spring-boot-starter-web'
       implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-      runtimeOnly 'mysql:mysql-connector-java'
+      runtimeOnly("org.postgresql:postgresql")
       testImplementation 'org.mockito:mockito-core'
       // Other dependencies
   }
