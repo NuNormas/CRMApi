@@ -50,7 +50,7 @@ This project is a RESTful API designed to manage transactions and sellers. It pr
 2. **Database Configuration**
 Edit the src/main/resources/application.properties file to configure your database settings.
     ```text
-    spring.datasource.url=jdbc:mysql://localhost:3306/your_database
+    spring.datasource.url=jdbc:postgresql://localhost:5432/your_database
     spring.datasource.username=your_username
     spring.datasource.password=your_password
     spring.jpa.hibernate.ddl-auto=update
@@ -102,4 +102,4 @@ Edit the src/main/resources/application.properties file to configure your databa
   }
 
 ### Testing
-- To Run test go to demo/src/test/kotlin/com/example/demo, choose the test you want to run, and run this test
+- To Run test go to demo/src/test/kotlin/com/example/demo, choose the test you want to run, and run this test. If there are no errors, all tests ran correctly
