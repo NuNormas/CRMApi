@@ -50,12 +50,12 @@ This project is a RESTful API designed to manage transactions and sellers. It pr
    
 2. **Database Configuration**
 Edit the src/main/resources/application.properties file to configure your database settings.
-  ```text
-  spring.datasource.url=jdbc:mysql://localhost:3306/your_database
-  spring.datasource.username=your_username
-  spring.datasource.password=your_password
-  spring.jpa.hibernate.ddl-auto=update
-  ```
+    ```text
+    spring.datasource.url=jdbc:mysql://localhost:3306/your_database
+    spring.datasource.username=your_username
+    spring.datasource.password=your_password
+    spring.jpa.hibernate.ddl-auto=update
+    ```
 3. **Build Project**
 
 4. **Running project**
