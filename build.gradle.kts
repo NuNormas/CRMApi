@@ -26,7 +26,6 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("junit:junit:4.12")
 	implementation("org.junit.jupiter:junit-jupiter:5.8.1")
-	runtimeOnly("com.h2database:h2")
 	runtimeOnly("org.postgresql:postgresql")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
