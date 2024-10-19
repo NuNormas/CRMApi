@@ -59,7 +59,7 @@ Edit the src/main/resources/application.properties file to configure your databa
 3. **Build Project**
 
 4. **Running project**
-- Run the DemoApplication.kt
+- Run the DemoApplication.kt in demo/src/main/kotlin/com/example/demo
 
 ### Example Usage
 - **Create a New Seller**
@@ -102,3 +102,5 @@ Edit the src/main/resources/application.properties file to configure your databa
       // Other dependencies
   }
 
+### Testing
+- to Run test go to demo/src/test/kotlin/com/example/demo, choose the test you want to run, and run this test
