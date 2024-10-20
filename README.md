@@ -45,7 +45,7 @@ This project is a RESTful API designed to manage transactions and sellers. It pr
 
 ### Steps to Build and Run
 
-1. **Open the project**
+1. **Open Project**
    Unzip the archive with project
    
 2. **Database Configuration**
