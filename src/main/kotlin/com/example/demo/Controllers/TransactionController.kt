@@ -53,7 +53,7 @@ class TransactionController(
         return ResponseEntity.ok(transactionsOfSeller)
     }
 
-    @GetMapping("best-seller/day")
+    @GetMapping("sellers/best-seller/day")
     fun getBestSellerOfDay() : ResponseEntity<Seller?> {
         val startDate = LocalDateTime.now()
             .withHour(0)
@@ -71,7 +71,7 @@ class TransactionController(
         return ResponseEntity.ok(bestSeller)
     }
 
-    @GetMapping("best-seller/month")
+    @GetMapping("sellers/best-seller/month")
     fun getBestSellerOfMonth() : ResponseEntity<Seller?> {
         val startDate = LocalDateTime.now()
             .withDayOfMonth(1)
@@ -90,7 +90,7 @@ class TransactionController(
         return ResponseEntity.ok(bestSeller)
     }
 
-    @GetMapping("best-seller/quarter")
+    @GetMapping("sellers/best-seller/quarter")
     fun getBestSellerOfQuarter() : ResponseEntity<Seller?> {
         val startDate = LocalDateTime.now().minusMonths(((LocalDateTime.now().monthValue - 1) % 3).toLong())
             .withDayOfMonth(1)
@@ -109,7 +109,7 @@ class TransactionController(
         return ResponseEntity.ok(bestSeller)
     }
 
-    @GetMapping("best-seller/year")
+    @GetMapping("sellers/best-seller/year")
     fun getBestSellerOfYear() : ResponseEntity<Seller?> {
         val startDate = LocalDateTime.now()
             .withDayOfYear(1)
@@ -152,5 +152,21 @@ class TransactionController(
 
         val sellersWithLessThanAmount = transactionService.getSellersWithLessAmountOfTransactionPerPeriod(startDate, endDate, amount)
         return ResponseEntity.ok(sellersWithLessThanAmount)
+    }
+
+    @GetMapping("sellers/{sellerId}/best-period")
+    fun getBestTransactionPeriodForSeller(@PathVariable sellerId: Long): ResponseEntity<Pair<LocalDateTime, LocalDateTime>?> {
+        val seller = sellerService.getSellerById(sellerId) ?: throw NoSuchElementException("seller with id $sellerId")
+
+        return try {
+            val bestPeriod = transactionService.getBestTransactionPeriodForSeller(seller)
+            if (bestPeriod != null) {
+                ResponseEntity.ok(bestPeriod)
+            } else {
+                throw NoSuchElementException("Transactions for the seller.")
+            }
+        } catch (e: Exception) {
+            throw Exception("An error occurred.")
+        }
     }
 }

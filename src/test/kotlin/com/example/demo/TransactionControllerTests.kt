@@ -291,4 +291,42 @@ class TransactionControllerTest {
             transactionController.getSellersWithLessAmountOfTransactionPerPeriod(amount, startDateString, endDateString)
         }
     }
+
+    @Test
+    fun `test getBestTransactionPeriodForSeller returns valid period`() {
+        val sellerId = 1L
+        val seller = Seller(sellerId, "John Doe", "123456789")
+        val bestPeriod = Pair(LocalDateTime.now().minusDays(5), LocalDateTime.now().minusDays(4))
+
+        `when`(sellerService.getSellerById(sellerId)).thenReturn(seller)
+        `when`(transactionService.getBestTransactionPeriodForSeller(seller)).thenReturn(bestPeriod)
+
+        val response: ResponseEntity<Pair<LocalDateTime, LocalDateTime>?> = transactionController.getBestTransactionPeriodForSeller(sellerId)
+
+        assertEquals(ResponseEntity.ok(bestPeriod), response)
+    }
+
+    @Test
+    fun `test getBestTransactionPeriodForSeller throws exception when seller not found`() {
+        val sellerId = 1L
+
+        `when`(sellerService.getSellerById(sellerId)).thenReturn(null)
+
+        assertThrows(NoSuchElementException::class.java) {
+            transactionController.getBestTransactionPeriodForSeller(sellerId)
+        }
+    }
+
+    @Test
+    fun `test getBestTransactionPeriodForSeller throws exception when no transactions found`() {
+        val sellerId = 1L
+        val seller = Seller(sellerId, "John Doe", "123456789")
+
+        `when`(sellerService.getSellerById(sellerId)).thenReturn(seller)
+        `when`(transactionService.getBestTransactionPeriodForSeller(seller)).thenReturn(null)
+
+        assertThrows(Exception::class.java) {
+            transactionController.getBestTransactionPeriodForSeller(sellerId)
+        }
+    }
 }

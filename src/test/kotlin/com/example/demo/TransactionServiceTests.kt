@@ -8,6 +8,7 @@ import org.mockito.InjectMocks
 import java.time.LocalDateTime
 import org.junit.jupiter.api.Test
 import org.mockito.Mockito.`when`
+import java.time.temporal.ChronoUnit
 import org.junit.jupiter.api.Assertions.*
 import com.example.demo.Entities.Seller
 import com.example.demo.Entities.PaymentType
@@ -146,5 +147,34 @@ class TransactionServiceTest {
         val result = transactionService.getSellersWithLessAmountOfTransactionPerPeriod(startDate, endDate, amountThreshold)
 
         assertEquals(emptyList<Seller>(), result)
+    }
+
+    @Test
+    fun `test getBestTransactionPeriodForSeller returns correct period`() {
+        val seller = Seller(1, "John Doe", "123456789")
+        val transactions = listOf(
+            Transaction(1, seller, BigDecimal("10.00"), PaymentType.CASH, LocalDateTime.now().minusDays(2)),
+            Transaction(2, seller, BigDecimal("20.00"), PaymentType.CARD, LocalDateTime.now().minusDays(1)),
+            Transaction(3, seller, BigDecimal("15.00"), PaymentType.CASH, LocalDateTime.now())
+        )
+
+        `when`(transactionRepository.findBySeller(seller)).thenReturn(transactions)
+
+        val result = transactionService.getBestTransactionPeriodForSeller(seller)
+
+        assertNotNull(result)
+        assertEquals(LocalDateTime.now().minusDays(2).truncatedTo(ChronoUnit.DAYS), result?.first)
+        assertEquals(LocalDateTime.now().plusDays(1).truncatedTo(ChronoUnit.DAYS), result?.second)
+    }
+
+    @Test
+    fun `test getBestTransactionPeriodForSeller returns null when no transactions exist`() {
+        val seller = Seller(1, "John Doe", "123456789")
+
+        `when`(transactionRepository.findBySeller(seller)).thenReturn(emptyList())
+
+        val result = transactionService.getBestTransactionPeriodForSeller(seller)
+
+        assertNull(result)
     }
 }

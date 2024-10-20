@@ -25,13 +25,14 @@ This project is a RESTful API designed to manage transactions and sellers. It pr
   Request Body: {"sellerId": 1, "amount": "10.00", "paymentType": "CASH" or "CARD" or "TRANSFER"}
   Example: {"sellerId": 1, "amount": "10.00", "paymentType": "CASH"}
 - **GET /api/transactions/sellers/{sellerId}**: Retrieve all transactions for a specific seller.
-- **GET /api/transactions/best-seller/day**: Retrieve the best seller for the current day.
-- **GET /api/transactions/best-seller/month**: Retrieve the best seller for the current month.
-- **GET /api/transactions/best-seller/quarter**: Retrieve the best seller for the current quarter.
-- **GET /api/transactions/best-seller/year**: Retrieve the best seller for the current year.
+- **GET /api/transactions/sellers/best-seller/day**: Retrieve the best seller for the current day.
+- **GET /api/transactions/sellers/best-seller/month**: Retrieve the best seller for the current month.
+- **GET /api/transactions/sellers/best-seller/quarter**: Retrieve the best seller for the current quarter.
+- **GET /api/transactions/sellers/best-seller/year**: Retrieve the best seller for the current year.
 - **GET /api/transactions/sellers/less-than**: Retrieve sellers with less than a specified amount of transactions within a given period.
   Query Parameters: amount, startDate, endDate
   Example: ?amount=30.00&startDate=2024-01-01T00:00:00&endDate=2024-01-31T23:59:59
+- **GET /api/transactions/sellers/{sellerId}/best-period**: Retrieve best period of seller, when he made the most transactions
 
 ## Instructions for Building and Running
 
